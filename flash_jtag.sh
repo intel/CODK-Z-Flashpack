@@ -13,16 +13,16 @@ flash() {
 	if [ x$arc_bin != "x" ] ; then
 		$scriptdir/bin/openocd \
 			-c "set arc_bin $arc_bin" \
-			-f utils/scripts/interface/ftdi/flyswatter2.cfg \
-			-f utils/scripts/board/quark_se.cfg \
-			-f utils/scripts/flash-arc-jtag.cfg
+			-f $scriptdir/scripts/interface/ftdi/flyswatter2.cfg \
+			-f $scriptdir/scripts/board/quark_se.cfg \
+			-f $scriptdir/scripts/flash-arc-jtag.cfg
 	fi
 	if [ x$x86_bin != "x" ] ; then
 		$scriptdir/bin/openocd \
 			-c "set x86_bin $x86_bin" \
-			-f utils/scripts/interface/ftdi/flyswatter2.cfg \
-			-f utils/scripts/board/quark_se.cfg \
-			-f utils/scripts/flash-x86-jtag.cfg
+			-f $scriptdir/scripts/interface/ftdi/flyswatter2.cfg \
+			-f $scriptdir/scripts/board/quark_se.cfg \
+			-f $scriptdir/scripts/flash-x86-jtag.cfg
 	fi
 }
 
