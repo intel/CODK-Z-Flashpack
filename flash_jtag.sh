@@ -10,14 +10,20 @@ help() {
 }
 
 flash() {
-	echo "
-
-"
-	$scriptdir/bin/openocd \
-	    -c "set arc_bin $arc_bin" -c "set x86_bin $x86_bin" \
-	    -f utils/scripts/interface/ftdi/flyswatter2.cfg \
-	    -f utils/scripts/board/quark_se.cfg \
-	    -f utils/scripts/flash-jtag.cfg
+	if [ x$arc_bin != "x" ] ; then
+		$scriptdir/bin/openocd \
+			-c "set arc_bin $arc_bin" \
+			-f utils/scripts/interface/ftdi/flyswatter2.cfg \
+			-f utils/scripts/board/quark_se.cfg \
+			-f utils/scripts/flash-arc-jtag.cfg
+	fi
+	if [ x$x86_bin != "x" ] ; then
+		$scriptdir/bin/openocd \
+			-c "set x86_bin $x86_bin" \
+			-f utils/scripts/interface/ftdi/flyswatter2.cfg \
+			-f utils/scripts/board/quark_se.cfg \
+			-f utils/scripts/flash-x86-jtag.cfg
+	fi
 }
 
 # Parse command args
