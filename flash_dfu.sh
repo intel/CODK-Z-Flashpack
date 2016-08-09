@@ -21,6 +21,9 @@ trap_to_dfu() {
   do
     sleep 0.1
   done
+
+  # Clean up
+  [ -f "trapped.bin" ] && rm -f "trapped.bin"
 }
 
 flash() {
