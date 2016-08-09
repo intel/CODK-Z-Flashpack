@@ -1,0 +1,6 @@
+/out/
+/arc/**/*.o
+/arc/**/*.o.cmd
+/x86/**/*.o
+/x86/**/*.o.cmd
+.DS_Store
