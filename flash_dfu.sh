@@ -31,11 +31,11 @@ flash() {
 
 "
   # if ARC binary not defined, reset device after x86 download
-  [ -z "$arc_bin" ] && reset_flag=-R
+  if [ -z "$arc_bin" ] ; then reset_flag=-R; fi
   # flash Quark binary if supplied
-  [ -n "$x86_bin" ] && $DFU -a 2 $reset_flag -D $x86_bin
+  if [ -n "$x86_bin" ] ; then $DFU -a 2 $reset_flag -D $x86_bin; fi
   # flash Quark binary if supplied
-  [ -n "$arc_bin" ] && $DFU -a 7 -R -D $arc_bin
+  if [ -n "$arc_bin" ] ; then $DFU -a 7 -R -D $arc_bin; fi
 }
 
 # Parse command args
