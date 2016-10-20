@@ -21,6 +21,17 @@ fi
 
 source $1/../zephyr/zephyr-env.sh
 export CODK_DIR=$1
-export ARC_PROJ_DIR=$2/arc
-export X86_PROJ_DIR=$2/x86
+export ARC_PROJ_DIR=$1/$2/arc
+export X86_PROJ_DIR=$1/$2/x86
 EOT
+
+echo
+echo "New project created in '$2'"
+echo "To work in '$2', exit your current shell session and start"
+echo "a new one. Then source your project's env.sh script;"
+echo
+echo "    $ source $2/env.sh"
+echo
+echo "Now, you are ready to write code in $2/arc and"
+echo "$2/x86"
+echo
