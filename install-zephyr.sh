@@ -9,9 +9,9 @@ if [ -d ${Z_PATH} ]; then
     echo "Zephyr source already exists. Skipping installation."
 else
     echo "Downloading Zephyr"
-    curl -sL https://github.com/01org/zephyr/archive/codk-m.tar.gz | tar xz
+    curl -sL https://github.com/01org/zephyr/archive/codk-m-${Z_VER}.tar.gz | tar xz
     echo "Installing Zephyr to ${Z_PATH}"
-    mv zephyr-codk-m ${Z_PATH}
+    mv zephyr-codk-m-${Z_VER} ${Z_PATH}
 fi
 
 if [ -d "${ZSDK_PATH}" ]; then
