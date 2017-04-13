@@ -19,7 +19,10 @@ if [ -d "${ZSDK_PATH}" ]; then
 else
     if [ ! -f /tmp/${ZSDK_FILE} ] ; then
         echo "Downloading Zephyr SDK"
-        curl -o /tmp/${ZSDK_FILE} -L https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/${ZSDK_VER}-i686/${ZSDK_FILE}
+        if ! curl --fail -o /tmp/${ZSDK_FILE} -L https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/${ZSDK_VER}-i686/${ZSDK_FILE}; then
+		ZSDK_FILE="zephyr-sdk-${ZSDK_VER}-setup.run"
+		curl --fail -o /tmp/${ZSDK_FILE} -L https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/${ZSDK_VER}/${ZSDK_FILE}
+	fi
         chmod 755 /tmp/${ZSDK_FILE}
     fi
     echo "Installing Zephyr SDK to ${ZSDK_PATH}"
