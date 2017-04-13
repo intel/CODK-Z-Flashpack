@@ -5,6 +5,11 @@ Z_PATH=$(readlink -m "$(pwd)/../zephyr")
 ZSDK_FILE="zephyr-sdk-${ZSDK_VER}-i686-setup.run"
 ZSDK_PATH=$(readlink -m "$(pwd)/../zephyr-sdk")
 
+cleanup() {
+	rm -f /tmp/${ZSDK_FILE}
+}
+trap cleanup EXIT
+
 if [ -d ${Z_PATH} ]; then
     echo "Zephyr source already exists. Skipping installation."
 else
