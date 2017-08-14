@@ -26,7 +26,7 @@ else
         echo "Downloading Zephyr SDK"
         if ! curl --fail -o /tmp/${ZSDK_FILE} -L https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/${ZSDK_VER}-i686/${ZSDK_FILE}; then
 		ZSDK_FILE="zephyr-sdk-${ZSDK_VER}-setup.run"
-		curl --fail -o /tmp/${ZSDK_FILE} -L https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/${ZSDK_VER}/${ZSDK_FILE}
+		curl --fail -o /tmp/${ZSDK_FILE} -L https://github.com/zephyrproject-rtos/meta-zephyr-sdk/releases/download/${ZSDK_VER}/${ZSDK_FILE}
 	fi
         chmod 755 /tmp/${ZSDK_FILE}
     fi
